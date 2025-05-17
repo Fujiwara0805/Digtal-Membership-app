@@ -1,0 +1,95 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ChevronRight, GlassWater } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+export function HeroSection() {
+  return (
+    <div className="relative min-h-screen flex items-center pt-16">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.pexels.com/photos/5490965/pexels-photo-5490965.jpeg"
+          alt="Luxury Bar"
+          fill
+          priority
+          style={{ objectFit: "cover" }}
+          className="brightness-[0.3]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
+      </div>
+
+      <div className="container mx-auto px-4 z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-center space-x-2 mb-6">
+                <GlassWater className="h-6 w-6 text-primary" />
+                <h2 className="text-xl font-serif tracking-wider gold-text">
+                  EXCLUSIVE MEMBERSHIP
+                </h2>
+              </div>
+
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 font-serif">
+                A Private <span className="gold-text">Haven</span> For The Discerning
+              </h1>
+
+              <p className="text-lg text-muted-foreground mb-8 max-w-xl">
+                Experience unparalleled luxury, exceptional service, and a curated selection of the finest spirits in our members-only establishment.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" asChild>
+                  <Link href="/membership">
+                    View Membership <ChevronRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/booking">
+                    Make Reservation
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="hidden lg:flex justify-center"
+          >
+            {/* Decorative element */}
+            <div className="relative w-[400px] h-[500px]">
+              <div className="membership-card w-full h-full opacity-90 rotate-3" />
+              <div className="membership-card w-full h-full absolute top-6 -left-6 opacity-70 -rotate-6" />
+              <div className="membership-card w-full h-full absolute -top-6 left-6 shadow-xl">
+                <div className="card-content p-8 flex flex-col items-center justify-center h-full">
+                  <GlassWater className="h-12 w-12 text-primary mb-6" />
+                  <h3 className="text-2xl font-bold mb-2 font-serif text-center gold-text">
+                    Digital Membership
+                  </h3>
+                  <p className="text-center text-muted-foreground mb-6">
+                    Your exclusive digital pass to a world of luxury
+                  </p>
+                  <div className="w-32 h-32 bg-white/10 backdrop-blur-sm rounded-lg mb-4 flex items-center justify-center">
+                    <span className="text-xs text-center text-muted-foreground">QR Code</span>
+                  </div>
+                  <p className="text-xs text-center text-muted-foreground">
+                    Member since 2025
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+}
