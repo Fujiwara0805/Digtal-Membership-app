@@ -8,7 +8,9 @@ export const i18n = {
         membership: 'メンバーシップ',
         reservations: 'ご予約',
         profile: 'プロフィール',
-        signIn: 'ログイン'
+        signIn: 'ログイン',
+        openMenu: 'メニューを開く',
+        closeMenu: 'メニューを閉じる'
       },
       common: {
         bookTable: '予約する',
@@ -75,23 +77,63 @@ export const i18n = {
         hero: {
           title: '洗練された空間で特別なひとときを',
           subtitle: '会員制バーで至高のおもてなしを',
-          cta: 'メンバーになる'
+          cta: 'メンバーになる',
+          exclusiveMembership: 'エクスクルーシブメンバーシップ',
+          privateHaven: '選ばれし者のためのプライベートな隠れ家',
+          description: '会員制の当店で、比類なき贅沢、卓越したサービス、そして最高級のスピリッツのセレクションをご体験ください。',
+          viewMembership: 'メンバーシップを見る',
+          makeReservation: '予約する',
+          digitalMembership: 'デジタルメンバーシップ',
+          digitalPass: '贅沢な世界へのあなただけのデジタルパス',
+          qrCode: 'QRコード',
+          memberSince: '2025年からのメンバー'
         },
         features: {
           title: '会員特典',
           subtitle: '会員様だけの特別なサービス',
           items: {
             access: '優先入場',
+            accessDescription: '当施設への優先入場、会員限定エリアやイベントへのアクセスをお楽しみください。',
             reservations: '優先予約',
+            reservationsDescription: '会員専用の予約枠で、お好みの席を確保できます。',
             selection: '厳選された銘酒',
+            selectionDescription: '常に進化する希少なスピリッツやシグネチャーカクテルのメニューをご体験ください。',
             hours: '延長営業時間',
-            privileges: '会員特典'
+            hoursDescription: '通常の営業時間外もご利用いただけます。',
+            privileges: '会員特典',
+            privilegesDescription: '特別な待遇、無料のテイスティング、誕生日のお祝いなどをお受け取りください。'
           }
         },
         events: {
           title: '特別イベント',
           subtitle: '会員様限定の特別なイベント',
-          reserve: '予約する'
+          reserve: '予約する',
+          items: [
+            {
+              title: "希少ウイスキーテイスティング",
+              date: "2025年5月15日",
+              description: "希少な限定版ウイスキーセレクションをフィーチャーした特別なテイスティングイベントです。",
+              image: "https://images.pexels.com/photos/4667148/pexels-photo-4667148.jpeg"
+            },
+            {
+              title: "ミクソロジーマスタークラス",
+              date: "2025年6月2日",
+              description: "マスターミクソロジストから、卓越したカクテル作りの技術を学びます。",
+              image: "https://images.pexels.com/photos/8978899/pexels-photo-8978899.jpeg"
+            },
+            {
+              title: "ジャズ＆カクテルナイト",
+              date: "2025年6月18日",
+              description: "スムーズなジャズと完璧にペアリングされたシグネチャーカクテルの夜。",
+              image: "https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg"
+            }
+          ]
+        },
+        ctaSection: {
+          title: '比類なき贅沢を体験する',
+          description: '私たちのエクスクルーシブメンバーシップに参加し、プレミアムサービス、希少なスピリッツ、洗練された雰囲気で、あなたのソーシャルエクスペリエンスを向上させましょう。',
+          becomeMember: 'メンバーになる',
+          bookVisit: '訪問を予約する'
         }
       }
     }

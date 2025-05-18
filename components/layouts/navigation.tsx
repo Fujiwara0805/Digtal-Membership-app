@@ -94,7 +94,7 @@ export function Navigation() {
               variant="ghost" 
               size="icon" 
               onClick={() => setIsOpen(!isOpen)}
-              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-label={isOpen ? i18n.translations.ja.navigation.closeMenu : i18n.translations.ja.navigation.openMenu}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -134,7 +134,7 @@ export function Navigation() {
                     </Link>
                   );
                 })}
-                <Button className="w-full mt-2">Sign In</Button>
+                <Button className="w-full mt-2">{i18n.translations.ja.navigation.signIn}</Button>
               </nav>
             </div>
           </motion.div>

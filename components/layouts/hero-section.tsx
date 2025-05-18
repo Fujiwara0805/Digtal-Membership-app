@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight, GlassWater } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { i18n } from "@/lib/i18n";
 
 export function HeroSection() {
   return (
@@ -12,7 +13,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="https://images.pexels.com/photos/5490965/pexels-photo-5490965.jpeg"
-          alt="Luxury Bar"
+          alt={i18n.translations.ja.home.hero.title}
           fill
           priority
           style={{ objectFit: "cover" }}
@@ -32,27 +33,29 @@ export function HeroSection() {
               <div className="flex items-center space-x-2 mb-6">
                 <GlassWater className="h-6 w-6 text-primary" />
                 <h2 className="text-xl font-serif tracking-wider gold-text">
-                  EXCLUSIVE MEMBERSHIP
+                  {i18n.translations.ja.home.hero.exclusiveMembership}
                 </h2>
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 font-serif">
-                A Private <span className="gold-text">Haven</span> For The Discerning
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 font-serif"
+                  dangerouslySetInnerHTML={{ __html: i18n.translations.ja.home.hero.privateHaven.replace('プライベートな隠れ家', '<span class="gold-text">プライベートな隠れ家</span>') }}
+              >
+                {/* A Private <span className="gold-text">Haven</span> For The Discerning */}
               </h1>
 
               <p className="text-lg text-muted-foreground mb-8 max-w-xl">
-                Experience unparalleled luxury, exceptional service, and a curated selection of the finest spirits in our members-only establishment.
+                {i18n.translations.ja.home.hero.description}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
                   <Link href="/membership">
-                    View Membership <ChevronRight className="ml-2 h-4 w-4" />
+                    {i18n.translations.ja.home.hero.viewMembership} <ChevronRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/booking">
-                    Make Reservation
+                    {i18n.translations.ja.home.hero.makeReservation}
                   </Link>
                 </Button>
               </div>
@@ -73,16 +76,16 @@ export function HeroSection() {
                 <div className="card-content p-8 flex flex-col items-center justify-center h-full">
                   <GlassWater className="h-12 w-12 text-primary mb-6" />
                   <h3 className="text-2xl font-bold mb-2 font-serif text-center gold-text">
-                    Digital Membership
+                    {i18n.translations.ja.home.hero.digitalMembership}
                   </h3>
                   <p className="text-center text-muted-foreground mb-6">
-                    Your exclusive digital pass to a world of luxury
+                    {i18n.translations.ja.home.hero.digitalPass}
                   </p>
                   <div className="w-32 h-32 bg-white/10 backdrop-blur-sm rounded-lg mb-4 flex items-center justify-center">
-                    <span className="text-xs text-center text-muted-foreground">QR Code</span>
+                    <span className="text-xs text-center text-muted-foreground">{i18n.translations.ja.home.hero.qrCode}</span>
                   </div>
                   <p className="text-xs text-center text-muted-foreground">
-                    Member since 2025
+                    {i18n.translations.ja.home.hero.memberSince}
                   </p>
                 </div>
               </div>

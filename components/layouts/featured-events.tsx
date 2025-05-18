@@ -5,28 +5,10 @@ import Image from "next/image";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CalendarIcon } from "lucide-react";
+import { i18n } from "@/lib/i18n";
 
 export function FeaturedEvents() {
-  const events = [
-    {
-      title: "Rare Whisky Tasting",
-      date: "May 15, 2025",
-      description: "An exclusive tasting event featuring rare and limited edition whisky selections.",
-      image: "https://images.pexels.com/photos/4667148/pexels-photo-4667148.jpeg"
-    },
-    {
-      title: "Mixology Masterclass",
-      date: "June 2, 2025",
-      description: "Learn the art of crafting exceptional cocktails from our master mixologists.",
-      image: "https://images.pexels.com/photos/8978899/pexels-photo-8978899.jpeg"
-    },
-    {
-      title: "Jazz & Cocktails Night",
-      date: "June 18, 2025",
-      description: "An evening of smooth jazz and perfectly paired signature cocktails.",
-      image: "https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg"
-    }
-  ];
+  const events = i18n.translations.ja.home.events.items;
 
   return (
     <div className="py-24 bg-background">
@@ -39,7 +21,7 @@ export function FeaturedEvents() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold mb-4 font-serif gold-text"
           >
-            Upcoming Exclusive Events
+            {i18n.translations.ja.home.events.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -48,7 +30,7 @@ export function FeaturedEvents() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            Members gain priority access to our curated calendar of exceptional experiences
+            {i18n.translations.ja.home.events.subtitle}
           </motion.p>
         </div>
 
@@ -79,7 +61,7 @@ export function FeaturedEvents() {
                   <p className="text-muted-foreground">{event.description}</p>
                 </CardContent>
                 <CardFooter>
-                  <Button variant="outline" className="w-full">Reserve Spot</Button>
+                  <Button variant="outline" className="w-full">{i18n.translations.ja.home.events.reserve}</Button>
                 </CardFooter>
               </Card>
             </motion.div>

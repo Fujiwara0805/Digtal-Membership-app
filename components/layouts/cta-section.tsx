@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { i18n } from "@/lib/i18n";
 
 export function CTASection() {
   return (
@@ -11,7 +12,7 @@ export function CTASection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="https://images.pexels.com/photos/1536356/pexels-photo-1536356.jpeg"
-          alt="Luxury Bar Interior"
+          alt={i18n.translations.ja.home.ctaSection.title}
           fill
           style={{ objectFit: "cover" }}
           className="brightness-[0.3]"
@@ -28,7 +29,7 @@ export function CTASection() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold mb-6 font-serif gold-text"
           >
-            Experience Unparalleled Luxury
+            {i18n.translations.ja.home.ctaSection.title}
           </motion.h2>
           
           <motion.p
@@ -38,7 +39,7 @@ export function CTASection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-xl mb-8 text-muted-foreground"
           >
-            Join our exclusive membership and elevate your social experience with premium service, rare spirits, and a sophisticated atmosphere.
+            {i18n.translations.ja.home.ctaSection.description}
           </motion.p>
           
           <motion.div
@@ -49,10 +50,10 @@ export function CTASection() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button size="lg" asChild>
-              <Link href="/membership">Become a Member</Link>
+              <Link href="/membership">{i18n.translations.ja.home.ctaSection.becomeMember}</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="/booking">Book a Visit</Link>
+              <Link href="/booking">{i18n.translations.ja.home.ctaSection.bookVisit}</Link>
             </Button>
           </motion.div>
         </div>

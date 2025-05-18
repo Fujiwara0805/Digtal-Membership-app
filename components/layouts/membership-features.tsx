@@ -3,33 +3,34 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GlassWater, CalendarCheck, Clock, Gift, FileLock as Cocktail } from "lucide-react";
+import { i18n } from "@/lib/i18n";
 
 export function MembershipFeatures() {
   const features = [
     {
       icon: GlassWater,
-      title: "Exclusive Access",
-      description: "Enjoy priority entry to our establishment and access to members-only areas and events."
+      title: i18n.translations.ja.home.features.items.access,
+      description: i18n.translations.ja.home.features.items.accessDescription
     },
     {
       icon: CalendarCheck,
-      title: "Priority Reservations",
-      description: "Reserve your preferred seating with dedicated member reservation slots."
+      title: i18n.translations.ja.home.features.items.reservations,
+      description: i18n.translations.ja.home.features.items.reservationsDescription
     },
     {
       icon: Cocktail,
-      title: "Curated Selection",
-      description: "Experience our constantly evolving menu of rare spirits and signature cocktails."
+      title: i18n.translations.ja.home.features.items.selection,
+      description: i18n.translations.ja.home.features.items.selectionDescription
     },
     {
       icon: Clock,
-      title: "Extended Hours",
-      description: "Access to extended hours beyond our regular operating times."
+      title: i18n.translations.ja.home.features.items.hours,
+      description: i18n.translations.ja.home.features.items.hoursDescription
     },
     {
       icon: Gift,
-      title: "Member Privileges",
-      description: "Receive special treatment, complimentary tastings, and birthday celebrations."
+      title: i18n.translations.ja.home.features.items.privileges,
+      description: i18n.translations.ja.home.features.items.privilegesDescription
     }
   ];
 
@@ -44,7 +45,7 @@ export function MembershipFeatures() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold mb-4 font-serif gold-text"
           >
-            Membership Privileges
+            {i18n.translations.ja.home.features.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -53,7 +54,7 @@ export function MembershipFeatures() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            Discover the exceptional benefits available exclusively to our esteemed members
+            {i18n.translations.ja.home.features.subtitle}
           </motion.p>
         </div>
 
