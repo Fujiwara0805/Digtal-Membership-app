@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, GlassWater } from "lucide-react";
+import { ChevronRight, GlassWater, Flame } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { i18n } from "@/lib/i18n";
@@ -12,12 +12,12 @@ export function HeroSection() {
     <div className="relative min-h-screen flex items-center pt-16">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.pexels.com/photos/5490965/pexels-photo-5490965.jpeg"
-          alt={i18n.translations.ja.home.hero.title}
+          src="/images/hero-section-background.jpg"
+          alt="Guildのヒーローセクション背景画像 - 温かみのある酒場の風景"
           fill
           priority
           style={{ objectFit: "cover" }}
-          className="brightness-[0.3]"
+          className="brightness-[0.5]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
       </div>
@@ -31,9 +31,11 @@ export function HeroSection() {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-center space-x-2 mb-6">
-                <GlassWater className="h-6 w-6 text-primary" />
-                <h2 className="text-xl font-serif tracking-wider gold-text">
-                  {i18n.translations.ja.home.hero.exclusiveMembership}
+                <Flame className="h-6 w-6 text-primary" />
+                <h2 className="text-xl font-serif tracking-wider">
+                  <span className="text-[#496f5c] dark:text-[#f0e7dc]">
+                    {i18n.translations.ja.home.hero.exclusiveMembership}
+                  </span>
                 </h2>
               </div>
 
@@ -74,7 +76,7 @@ export function HeroSection() {
               <div className="membership-card w-full h-full absolute top-6 -left-6 opacity-70 -rotate-6" />
               <div className="membership-card w-full h-full absolute -top-6 left-6 shadow-xl">
                 <div className="card-content p-8 flex flex-col items-center justify-center h-full">
-                  <GlassWater className="h-12 w-12 text-primary mb-6" />
+                  <Flame className="h-12 w-12 text-primary mb-6" />
                   <h3 className="text-2xl font-bold mb-2 font-serif text-center gold-text">
                     {i18n.translations.ja.home.hero.digitalMembership}
                   </h3>

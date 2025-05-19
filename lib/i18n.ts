@@ -4,11 +4,11 @@ export const i18n = {
   translations: {
     ja: {
       navigation: {
-        home: 'ホーム',
-        membership: 'メンバーシップ',
-        reservations: 'ご予約',
-        profile: 'プロフィール',
-        signIn: 'ログイン',
+        home: '酒場の入口',
+        membership: 'ギルドへ',
+        reservations: '集いの予約',
+        profile: '冒険者情報',
+        signIn: '名乗りを上げる',
         openMenu: 'メニューを開く',
         closeMenu: 'メニューを閉じる'
       },
@@ -75,65 +75,65 @@ export const i18n = {
       },
       home: {
         hero: {
-          title: '洗練された空間で特別なひとときを',
-          subtitle: '会員制バーで至高のおもてなしを',
-          cta: 'メンバーになる',
-          exclusiveMembership: 'エクスクルーシブメンバーシップ',
-          privateHaven: '選ばれし者のためのプライベートな隠れ家',
-          description: '会員制の当店で、比類なき贅沢、卓越したサービス、そして最高級のスピリッツのセレクションをご体験ください。',
-          viewMembership: 'メンバーシップを見る',
-          makeReservation: '予約する',
-          digitalMembership: 'デジタルメンバーシップ',
-          digitalPass: '贅沢な世界へのあなただけのデジタルパス',
-          qrCode: 'QRコード',
-          memberSince: '2025年からのメンバー'
+          title: '未知なる物語が交わる、旅人の酒場',
+          subtitle: '土地の秘話、隠れた名所、仲間との出会い。次の冒険が、ここから始まる。',
+          cta: '酒場の仲間入り',
+          exclusiveMembership: '旅人たちの集い',
+          privateHaven: '未知なる物語が交わる、旅人の酒場',
+          description: '土地の秘話、隠れた名所、仲間との出会い。次の冒険が、ここから始まる。',
+          viewMembership: 'ギルドについて',
+          makeReservation: '席を確保する',
+          digitalMembership: '冒険者の証',
+          digitalPass: '酒場への通行証',
+          qrCode: '通行証の印',
+          memberSince: '酒場の仲間入り: '
         },
         features: {
-          title: '会員特典',
-          subtitle: '会員様だけの特別なサービス',
+          title: '酒場の仲間だけの特権',
+          subtitle: 'より深く、より楽しく。旅と情報交換を支える特典の数々。',
           items: {
-            access: '優先入場',
-            accessDescription: '当施設への優先入場、会員限定エリアやイベントへのアクセスをお楽しみください。',
-            reservations: '優先予約',
-            reservationsDescription: '会員専用の予約枠で、お好みの席を確保できます。',
-            selection: '厳選された銘酒',
-            selectionDescription: '常に進化する希少なスピリッツやシグネチャーカクテルのメニューをご体験ください。',
-            hours: '延長営業時間',
-            hoursDescription: '通常の営業時間外もご利用いただけます。',
-            privileges: '会員特典',
-            privilegesDescription: '特別な待遇、無料のテイスティング、誕生日のお祝いなどをお受け取りください。'
+            access: '秘伝のレシピ帖',
+            accessDescription: 'メンバー限定の特別メニューや、地元食材を使った創作料理を味わえる。',
+            reservations: '暖炉そばの特等席',
+            reservationsDescription: '混雑時も安心。特別な集いや語らいのために、優先的に席を確保。',
+            selection: '土地の恵みと物語の一杯',
+            selectionDescription: '地元産の珍しい酒や、旅の物語にちなんだオリジナルカクテルを楽しめる。',
+            hours: '語り部の灯火',
+            hoursDescription: '夜更けまで語り明かしたい夜も安心。メンバーだけの延長営業。',
+            privileges: '情報交換の円卓',
+            privilegesDescription: '最新のルート情報、穴場スポット、旅の知恵をメンバー間で共有できる。'
           }
         },
         events: {
-          title: '特別イベント',
-          subtitle: '会員様限定の特別なイベント',
-          reserve: '予約する',
+          title: '今宵の催しと集い',
+          subtitle: '忘れられない体験を共に。季節ごとの特別な集いや情報交換会。',
+          reserve: '参加する',
           items: [
             {
-              title: "希少ウイスキーテイスティング",
-              date: "2025年5月15日",
-              description: "希少な限定版ウイスキーセレクションをフィーチャーした特別なテイスティングイベントです。",
-              image: "https://images.pexels.com/photos/4667148/pexels-photo-4667148.jpeg"
+              title: "星空キャンプと焚き火料理の夜",
+              date: "近日開催",
+              description: "満天の星の下、焚き火を囲んで地元食材を使った料理を楽しみ、旅の体験を語り合う特別なキャンプイベント。",
+              image: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1080&q=75"
             },
             {
-              title: "ミクソロジーマスタークラス",
-              date: "2025年6月2日",
-              description: "マスターミクソロジストから、卓越したカクテル作りの技術を学びます。",
-              image: "https://images.pexels.com/photos/8978899/pexels-photo-8978899.jpeg"
+              title: "〇〇渓谷 秘境トレッキング報告会",
+              date: "近日開催",
+              description: "最近踏破されたばかりの〇〇渓谷の新ルート。詳細な情報や注意点を、踏破したメンバーから直接聞ける報告会。",
+              image: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1080&q=75"
             },
             {
-              title: "ジャズ＆カクテルナイト",
-              date: "2025年6月18日",
-              description: "スムーズなジャズと完璧にペアリングされたシグネチャーカクテルの夜。",
-              image: "https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg"
+              title: "地元猟師と囲むジビエの宴",
+              date: "近日開催",
+              description: "普段は味わえない新鮮なジビエ料理と、地元猟師の興味深い話を楽しめる、食と文化の交流会。",
+              image: "/images/ジビエ.jpg"
             }
           ]
         },
         ctaSection: {
-          title: '比類なき贅沢を体験する',
-          description: '私たちのエクスクルーシブメンバーシップに参加し、プレミアムサービス、希少なスピリッツ、洗練された雰囲気で、あなたのソーシャルエクスペリエンスを向上させましょう。',
-          becomeMember: 'メンバーになる',
-          bookVisit: '訪問を予約する'
+          title: 'さあ、新たな冒険の扉を開こう',
+          description: 'この酒場の仲間となれば、旅はもっと豊かに、もっと刺激的になる。信頼できる情報、温かい出会い、そして忘れられない体験が君を待っている。',
+          becomeMember: '仲間に加わる',
+          bookVisit: '酒場を覗いてみる'
         }
       }
     }

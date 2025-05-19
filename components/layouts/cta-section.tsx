@@ -11,11 +11,11 @@ export function CTASection() {
     <div className="py-24 relative">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.pexels.com/photos/1536356/pexels-photo-1536356.jpeg"
-          alt={i18n.translations.ja.home.ctaSection.title}
+          src="/images/guild.jpg"
+          alt="GuildのCTAセクション背景画像 - 冒険者たちが集う酒場"
           fill
           style={{ objectFit: "cover" }}
-          className="brightness-[0.3]"
+          className="brightness-[0.4]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background to-transparent" />
       </div>
