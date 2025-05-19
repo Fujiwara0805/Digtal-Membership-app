@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, GlassWater, Flame } from "lucide-react";
+import { ChevronRight, GlassWater, Club } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { i18n } from "@/lib/i18n";
@@ -31,9 +31,9 @@ export function HeroSection() {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-center space-x-2 mb-6">
-                <Flame className="h-6 w-6 text-primary" />
+                <Club className="h-6 w-6 text-primary" />
                 <h2 className="text-xl font-serif tracking-wider">
-                  <span className="text-[#496f5c] dark:text-[#f0e7dc]">
+                  <span className="text-[#2E3E35] dark:text-[#cb7229]">
                     {i18n.translations.ja.home.hero.exclusiveMembership}
                   </span>
                 </h2>
@@ -45,7 +45,7 @@ export function HeroSection() {
                 {/* A Private <span className="gold-text">Haven</span> For The Discerning */}
               </h1>
 
-              <p className="text-lg text-muted-foreground mb-8 max-w-xl">
+              <p className="text-lg text-[#2E3E35] dark:text-[#cb7229] mb-8 max-w-xl">
                 {i18n.translations.ja.home.hero.description}
               </p>
 
@@ -76,7 +76,7 @@ export function HeroSection() {
               <div className="membership-card w-full h-full absolute top-6 -left-6 opacity-70 -rotate-6" />
               <div className="membership-card w-full h-full absolute -top-6 left-6 shadow-xl">
                 <div className="card-content p-8 flex flex-col items-center justify-center h-full">
-                  <Flame className="h-12 w-12 text-primary mb-6" />
+                  <Club className="h-12 w-12 text-primary mb-6" />
                   <h3 className="text-2xl font-bold mb-2 font-serif text-center gold-text">
                     {i18n.translations.ja.home.hero.digitalMembership}
                   </h3>

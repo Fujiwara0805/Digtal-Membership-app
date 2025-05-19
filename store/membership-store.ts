@@ -18,9 +18,12 @@ export interface MemberDetails {
   type: string;
   memberSince: string;
   validUntil: string;
-  preferredLocation: string;
+  preferredLocation?: string;
   preferences?: Preference;
   bio?: string;
+  user_type?: "tourist" | "local" | "staff";
+  home_area?: string;
+  interests?: string[];
 }
 
 export interface Reservation {
@@ -36,7 +39,7 @@ interface MembershipState {
   memberDetails: MemberDetails;
   upcomingReservations: Reservation[];
   pastReservations: Reservation[];
-  updateMemberDetails: (details: MemberDetails) => void;
+  updateMemberDetails: (details: Partial<MemberDetails>) => void;
   addReservation: (reservation: Reservation) => void;
   cancelReservation: (id: string) => void;
 }
@@ -44,19 +47,22 @@ interface MembershipState {
 // Mock data
 const mockMemberDetails: MemberDetails = {
   id: "MEM123456",
-  name: "John Doe",
+  name: "旅人太郎",
   email: "john.doe@example.com",
   phone: "+1 555-123-4567",
   avatar: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=300",
   type: "Platinum",
-  memberSince: "January 2023",
-  validUntil: "December 31, 2025",
-  preferredLocation: "downtown",
+  memberSince: "2023年1月",
+  validUntil: "2025年12月31日",
+  preferredLocation: "lake_toya",
   preferences: {
     dietary: "none",
-    alcoholPreference: "whiskey"
+    alcoholPreference: "craft_beer"
   },
-  bio: "Whiskey enthusiast and cocktail aficionado."
+  bio: "クラフトビールとキャンプが好きです。北海道の自然を満喫しに来ました！",
+  user_type: "tourist",
+  home_area: "東京都",
+  interests: ["camping", "gourmet", "onsen"],
 };
 
 // Mock reservations
@@ -115,7 +121,9 @@ export const useMembershipStore = create<MembershipState>()(
       pastReservations: mockPastReservations,
       
       updateMemberDetails: (details) => 
-        set({ memberDetails: details }),
+        set((state) => ({ 
+          memberDetails: { ...state.memberDetails, ...details }
+        })),
       
       addReservation: (reservation) => 
         set((state) => ({

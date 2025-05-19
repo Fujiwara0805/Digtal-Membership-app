@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Flame } from "lucide-react"; // 焚き火アイコン
+import { Club } from "lucide-react"; // Flame を Club に変更
 import { i18n } from "@/lib/i18n"; // i18nを使用する場合
 
 export function SplashScreen() {
@@ -23,12 +23,12 @@ export function SplashScreen() {
         }}
         className="flex flex-col items-center"
       >
-        <Flame className="h-24 w-24 text-[hsl(var(--accent))]" /> {/* アイコンの色はアクセントカラーのフレイムアンバーを使用 */}
+        <Club className="h-24 w-24 text-[hsl(var(--accent))]" /> {/* Flame を Club に変更 */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="mt-6 text-4xl font-serif font-bold text-[hsl(var(--foreground))]" // テキストはフォアグラウンドカラー(羊皮紙アイボリー)
+          className="mt-6 text-[32px] font-serif font-bold text-[#c1c3c6]"
         >
           Guild
         </motion.h1>
@@ -36,7 +36,7 @@ export function SplashScreen() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.0 }}
-          className="mt-2 text-sm text-[hsl(var(--muted-foreground))]"
+          className="mt-2 text-[24px] text-[#c1c3c6]"
         >
           {/* i18n.translations.ja.home.hero.subtitle の一部など、キャッチーなフレーズ */}
           旅人たちの物語が交わる場所へ…

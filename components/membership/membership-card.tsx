@@ -3,29 +3,41 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { QRCodeSVG } from "qrcode.react";
-import { GlassWater, RefreshCw } from "lucide-react";
+import { CheckCircle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useMembershipStore } from "@/store/membership-store";
 import { generateQRToken } from "@/lib/qr-utils";
+import QRCode from "react-qr-code";
 
-export function MembershipCard() {
+export function MembershipCard({ userId }: { userId: string }) {
   const { memberDetails } = useMembershipStore();
   const [qrValue, setQrValue] = useState("");
   const [countdown, setCountdown] = useState(30);
   const [loading, setLoading] = useState(false);
 
-  // Generate QR code that refreshes every 30 seconds
-  useEffect(() => {
-    const generateQR = () => {
-      setLoading(true);
-      const token = generateQRToken(memberDetails.id);
-      setQrValue(token);
-      setCountdown(30);
-      setLoading(false);
+  // QRコードの生成関数（統合版）
+  const generateQR = () => {
+    setLoading(true);
+    
+    // 基本情報と会員詳細を含めたデータを作成
+    const cardData = {
+      userId,
+      memberType: memberDetails.type,
+      validUntil: memberDetails.validUntil,
+      timestamp: Date.now(),
+      token: generateQRToken(memberDetails.id) // セキュリティ検証用トークン
     };
+    
+    // JSONを文字列化してQRコードの値として使用
+    setQrValue(JSON.stringify(cardData));
+    setCountdown(30);
+    setLoading(false);
+  };
 
+  // QRコード生成と自動更新
+  useEffect(() => {
     generateQR();
+    
     const interval = setInterval(() => {
       setCountdown((prev) => {
         if (prev <= 1) {
@@ -37,83 +49,75 @@ export function MembershipCard() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [memberDetails.id]);
-
-  const manualRefresh = () => {
-    setLoading(true);
-    const token = generateQRToken(memberDetails.id);
-    setQrValue(token);
-    setCountdown(30);
-    setLoading(false);
-  };
+  }, [memberDetails.id, userId, memberDetails.type, memberDetails.validUntil]);
 
   return (
     <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      whileHover={{ scale: 1.02 }}
-      className="w-full max-w-md"
     >
       <Card className="membership-card overflow-hidden">
-        <CardContent className="card-content p-8">
-          <div className="flex justify-between items-start mb-6">
-            <div className="flex items-center">
-              <GlassWater className="h-8 w-8 text-primary mr-2" />
-              <h2 className="text-2xl font-bold font-serif gold-text">Le Bar Privé</h2>
-            </div>
-            <div className="text-right">
-              <p className="text-xs text-muted-foreground">MEMBER ID</p>
-              <p className="text-sm font-mono">{memberDetails.id}</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center mb-6">
-            <div className="bg-white p-4 rounded-xl mb-2 relative">
-              {loading ? (
-                <div className="flex items-center justify-center w-48 h-48">
-                  <RefreshCw className="animate-spin h-8 w-8 text-primary/50" />
-                </div>
-              ) : (
-                <QRCodeSVG
-                  value={qrValue}
-                  size={192}
-                  level="H"
-                  className="rounded-md"
-                />
-              )}
-              <div className="absolute bottom-2 right-2 bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full">
-                {countdown}s
+        <CardContent className="card-content p-6 flex flex-col h-full">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex-1">
+              <h3 className="text-xl font-bold">{memberDetails.name}</h3>
+              <div className="flex items-center text-sm mt-1">
+                <span className="bg-primary/20 px-2 py-0.5 rounded-full text-xs">
+                  {memberDetails.user_type === 'tourist' ? '観光客' : 
+                   memberDetails.user_type === 'local' ? '地域住民' : 'スタッフ'}
+                </span>
+                <span className="ml-2 flex items-center">
+                  <CheckCircle className="h-3 w-3 mr-1" /> 会員確認済み
+                </span>
               </div>
             </div>
+            
+            {/* QRコード更新ボタンと残り時間の表示 */}
             <Button 
               variant="ghost" 
               size="sm" 
-              onClick={manualRefresh}
-              className="text-xs flex items-center text-muted-foreground"
-              disabled={loading}
+              onClick={generateQR} 
+              disabled={loading || countdown > 28}
+              className="h-8 px-2"
             >
-              <RefreshCw className="h-3 w-3 mr-1" /> Refresh
+              <RefreshCw className={`h-4 w-4 mr-1 ${loading ? 'animate-spin' : ''}`} />
+              <span className="text-xs">{countdown}秒</span>
             </Button>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
-            <div>
-              <p className="text-xs text-muted-foreground mb-1">MEMBER NAME</p>
-              <p className="font-medium">{memberDetails.name}</p>
+          <div className="flex-1 flex items-center justify-center my-4">
+            <div className={`p-3 bg-white rounded-lg ${loading ? 'opacity-50' : ''}`}>
+              {qrValue && (
+                <QRCode
+                  value={qrValue}
+                  size={180}
+                  style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                  fgColor="#000000"
+                  bgColor="#FFFFFF"
+                />
+              )}
             </div>
-            <div>
-              <p className="text-xs text-muted-foreground mb-1">MEMBERSHIP TYPE</p>
-              <p className="font-medium">{memberDetails.type}</p>
+          </div>
+
+          <div className="mt-4">
+            <div className="flex justify-between text-sm mb-1">
+              <span className="text-muted-foreground">会員ID</span>
+              <span className="font-medium">{memberDetails.id}</span>
             </div>
-            <div>
-              <p className="text-xs text-muted-foreground mb-1">VALID UNTIL</p>
-              <p className="font-medium">{memberDetails.validUntil}</p>
+            <div className="flex justify-between text-sm mb-1">
+              <span className="text-muted-foreground">会員種別</span>
+              <span className="font-medium">{memberDetails.type}</span>
             </div>
-            <div>
-              <p className="text-xs text-muted-foreground mb-1">MEMBER SINCE</p>
-              <p className="font-medium">{memberDetails.memberSince}</p>
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">有効期限</span>
+              <span className="font-medium">{memberDetails.validUntil}</span>
             </div>
+            
+            <p className="text-xs text-center mt-4 text-muted-foreground">
+              店舗スタッフにこのQRコードをご提示ください<br />
+              <span className="opacity-70">（安全のため{countdown}秒後に自動更新されます）</span>
+            </p>
           </div>
         </CardContent>
       </Card>

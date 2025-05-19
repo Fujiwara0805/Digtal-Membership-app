@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { i18n } from "@/lib/i18n";
 import { 
-  GlassWater, Menu, X, User, Calendar, Home, Settings, Flame 
+  GlassWater, Menu, X, User, Calendar, Home, Settings, Club 
 } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -51,8 +51,8 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           <Link href="/">
             <div className="flex items-center space-x-2">
-              <Flame className="h-6 w-6 text-primary" />
-              <span className="font-serif text-xl font-bold gold-text">Guild</span>
+              <Club className="h-6 w-6 text-primary" />
+              <span className="font-serif text-[24px] font-bold gold-text">Guild</span>
             </div>
           </Link>
 

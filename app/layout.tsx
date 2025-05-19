@@ -9,6 +9,8 @@ import { TanStackProvider } from '@/components/providers/tanstack-provider';
 import { i18n } from '@/lib/i18n';
 import { useState, useEffect } from 'react';
 import { SplashScreen } from '@/components/layouts/splash-screen'; // 作成したスプラッシュ画面
+import { SessionProvider } from "next-auth/react";
+import type { AppProps } from "next/app";
 
 // Remove variable font loading which can be problematic
 const inter = {
@@ -47,13 +49,15 @@ export default function RootLayout({
         ) : (
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <TanStackProvider>
-              <div className="flex flex-col min-h-screen">
-                <Navigation />
-                <main className="flex-1 pt-20">
-                  {children}
-                </main>
-              </div>
-              <Toaster />
+              <SessionProvider>
+                <div className="flex flex-col min-h-screen">
+                  <Navigation />
+                  <main className="flex-1 pt-20">
+                    {children}
+                  </main>
+                </div>
+                <Toaster />
+              </SessionProvider>
             </TanStackProvider>
           </ThemeProvider>
         )}
